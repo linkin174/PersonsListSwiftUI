@@ -7,15 +7,18 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct PersonsListView: View {
+    let persons: [Person]
+    
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        List(persons) { person in
+            Text(person.fullName)
+        }.listStyle(.plain)
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        PersonsListView(persons: Person.createPersons())
     }
 }
