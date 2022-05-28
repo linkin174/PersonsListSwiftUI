@@ -8,16 +8,16 @@
 import SwiftUI
 
 struct MainVIew: View {
-
-    @StateObject private var dataManager = DataManager()
+    
+    @StateObject private var personService = PersonsServices(dataManager: DataManager())
     
     var body: some View {
         TabView {
-            ListView(persons: dataManager.persons, viewTitle: "Persons List")
+            ListView(persons: personService.persons, viewTitle: "Persons List")
                 .tabItem {
                     Label("List", systemImage: "person.3.fill")
                 }
-            ContactsView(persons: dataManager.persons, viewTitle: "Contacts")
+            ContactsView(persons: personService.persons, viewTitle: "Contacts")
                 .tabItem {
                     Label("Contact", systemImage: "tray.full.fill")
                 }

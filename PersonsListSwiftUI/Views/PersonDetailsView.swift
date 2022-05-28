@@ -37,6 +37,6 @@ extension PersonDetailsView {
 
 struct PersonView_Previews: PreviewProvider {
     static var previews: some View {
-        PersonDetailsView(person: DataManager().persons.first!)
+        PersonDetailsView(person: PersonsServices(dataManager: DataManager()).persons.first!)
     }
 }

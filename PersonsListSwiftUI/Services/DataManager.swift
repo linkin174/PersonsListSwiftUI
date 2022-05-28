@@ -7,26 +7,19 @@
 
 import Foundation
 
-final class DataManager: ObservableObject {
+final class DataManager {
+    let names = ["Alex", "Tim", "Phil", "Alison", "Robert", "Amanda",
+                 "Andrew", "Samantha", "Stephany", "Rebecca"].shuffled()
     
-    @Published var persons = [Person]()
+    let surnames = ["Smith", "Cook", "Janson", "Peterson", "Pennyworth", "Blake",
+                    "Williams", "Gibson", "Martin", "Jordan"].shuffled()
     
-    private let names = ["Alex", "Tim", "Phil", "Alison", "Robert", "Amanda",
-                         "Andrew", "Samantha", "Stephany", "Rebecca"].shuffled()
-    
-    private let surnames = ["Smith", "Cook", "Janson", "Peterson", "Pennyworth", "Blake",
-                            "Williams", "Gibson", "Martin", "Jordan"].shuffled()
-    
-    private var emails: [String] {
+    var emails: [String] {
         generateEmails(names.count)
     }
     
-    private var phones: [String] {
+    var phones: [String] {
         generatePhones(names.count)
-    }
-
-    init() {
-        self.persons = createPersons()
     }
     
     private func generateEmails(_ quantity: Int) -> [String] {
@@ -59,19 +52,4 @@ final class DataManager: ObservableObject {
         }
         return phones
     }
-    
-    private func createPersons() -> [Person] {
-        var persons: [Person] = []
-        for index in 0 ..< names.count {
-            let person = Person(
-                id: index + 1,
-                firstName: names[index],
-                lastName: surnames[index],
-                email: emails[index],
-                phoneNumber: phones[index])
-            persons.append(person)
-        }
-        return persons
-    }
 }
-
