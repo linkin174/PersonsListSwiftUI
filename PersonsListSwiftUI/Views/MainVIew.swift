@@ -13,7 +13,7 @@ struct MainVIew: View {
     var body: some View {
         TabView {
             ListView(persons: persons, viewTitle: "Persons List").tabItem {
-                Label("List", systemImage: "person.circle")
+                Label("List", systemImage: "person.3.fill")
             }
             ContactsView(persons: persons, viewTitle: "Contacts").tabItem {
                 Label("Contact", systemImage: "tray.full.fill")
