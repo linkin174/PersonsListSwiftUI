@@ -12,10 +12,10 @@ struct MainVIew: View {
 
     var body: some View {
         TabView {
-            ListView(persons: persons, viewName: "Persons List").tabItem {
+            ListView(persons: persons, viewTitle: "Persons List").tabItem {
                 Label("List", systemImage: "person.circle")
             }
-            ContactsView(persons: persons, viewName: "Contacts").tabItem {
+            ContactsView(persons: persons, viewTitle: "Contacts").tabItem {
                 Label("Contact", systemImage: "tray.full.fill")
             }
         }

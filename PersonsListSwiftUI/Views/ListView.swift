@@ -9,24 +9,22 @@ import SwiftUI
 
 struct ListView: View {
     let persons: [Person]
-    let viewName: String
+    let viewTitle: String
 
     var body: some View {
         NavigationView {
             List(persons) { person in
-                ZStack(alignment: .leading) {
-                    Text(person.fullName)
-                    NavigationLink("", destination: PersonDetailsView(person: person))
-                }
+                NavigationLink(person.fullName,
+                               destination: PersonDetailsView(person: person))
             }
             .listStyle(.plain)
-        .navigationTitle(viewName)
+            .navigationTitle(viewTitle)
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(persons: Person.createPersons(), viewName: "Contacts")
+        ListView(persons: Person.createPersons(), viewTitle: "Persons List")
     }
 }

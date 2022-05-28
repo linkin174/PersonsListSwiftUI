@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContactsView: View {
     let persons: [Person]
-    let viewName: String
+    let viewTitle: String
 
     var body: some View {
         NavigationView {
@@ -18,15 +18,13 @@ struct ContactsView: View {
                     Label(person.email, systemImage: "person.text.rectangle")
                     Label(person.phoneNumber, systemImage: "phone")
                 }
-            }
-            .navigationTitle(viewName)
+            }.navigationTitle(viewTitle)
         }
-       
     }
 }
 
 struct PersenDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsView(persons: Person.createPersons(), viewName: "Emails")
+        ContactsView(persons: Person.createPersons(), viewTitle: "Contacts")
     }
 }
