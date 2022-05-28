@@ -15,7 +15,23 @@ struct PersonDetailsView: View {
             PersonImageView(imageName: "person.fill")
             Label(person.phoneNumber, systemImage: "phone").font(.title3)
             Label(person.email, systemImage: "person.text.rectangle").font(.title3)
-        }.navigationTitle(person.fullName)
+        }
+        .navigationTitle(person.fullName)
+    }
+}
+
+extension PersonDetailsView {
+    struct PersonImageView: View {
+        let imageName: String
+        var body: some View {
+            HStack {
+                Spacer()
+                Image(systemName: imageName)
+                    .resizable()
+                    .frame(width: 200, height: 200)
+                Spacer()
+            }
+        }
     }
 }
 

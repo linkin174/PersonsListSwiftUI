@@ -16,7 +16,6 @@
 		7005CED7284133EB008B6675 /* ContactsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005CED6284133EB008B6675 /* ContactsView.swift */; };
 		7005CED92841340E008B6675 /* PersonDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005CED82841340E008B6675 /* PersonDetailsView.swift */; };
 		7005CEDB284134C6008B6675 /* MainVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7005CEDA284134C6008B6675 /* MainVIew.swift */; };
-		70A2698C2841F9C400613741 /* PersonImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A2698B2841F9C400613741 /* PersonImageView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,7 +29,6 @@
 		7005CED6284133EB008B6675 /* ContactsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactsView.swift; sourceTree = "<group>"; };
 		7005CED82841340E008B6675 /* PersonDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonDetailsView.swift; sourceTree = "<group>"; };
 		7005CEDA284134C6008B6675 /* MainVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVIew.swift; sourceTree = "<group>"; };
-		70A2698B2841F9C400613741 /* PersonImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonImageView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -104,7 +102,6 @@
 				7005CEC42840F012008B6675 /* ListView.swift */,
 				7005CED6284133EB008B6675 /* ContactsView.swift */,
 				7005CED82841340E008B6675 /* PersonDetailsView.swift */,
-				70A2698B2841F9C400613741 /* PersonImageView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -184,7 +181,6 @@
 				7005CED22840F112008B6675 /* Person.swift in Sources */,
 				7005CED52840F123008B6675 /* DataManager.swift in Sources */,
 				7005CED92841340E008B6675 /* PersonDetailsView.swift in Sources */,
-				70A2698C2841F9C400613741 /* PersonImageView.swift in Sources */,
 				7005CEC52840F012008B6675 /* ListView.swift in Sources */,
 				7005CEC32840F012008B6675 /* PersonsListSwiftUIApp.swift in Sources */,
 			);
