@@ -5,25 +5,31 @@
 //  Created by Aleksandr Kretov on 22.03.2022.
 //
 
-final class DataManager {
-    static let shared = DataManager()
-    
-    let names = ["Alex", "Tim", "Phil", "Alison", "Robert", "Amanda", "Andrew", "Samantha", "Stephany", "Rebecca"].shuffled()
-    let surnames = ["Smith", "Cook", "Janson", "Peterson", "Pennyworth", "Blake", "Williams", "Gibson", "Martin", "Jordan"].shuffled()
-    
-    var emails: [String] {
-        DataManager.generateEmails(names.count)
-    }
-    
-    var phones: [String] {
-        DataManager.generatePhones(names.count)
-    }
-    
-    private init() {}
+protocol DataManagerProtocol {
+    func createPersons() -> [Person]
 }
 
-extension DataManager {
-    static func generateEmails(_ quantity: Int) -> [String] {
+final class DataManager: DataManagerProtocol {
+    
+    static let shared: DataManagerProtocol = DataManager()
+    
+    private let names = ["Alex", "Tim", "Phil", "Alison", "Robert", "Amanda",
+                         "Andrew", "Samantha", "Stephany", "Rebecca"].shuffled()
+    
+    private let surnames = ["Smith", "Cook", "Janson", "Peterson", "Pennyworth", "Blake",
+                            "Williams", "Gibson", "Martin", "Jordan"].shuffled()
+    
+    private var emails: [String] {
+        generateEmails(names.count)
+    }
+    
+    private var phones: [String] {
+        generatePhones(names.count)
+    }
+    
+    private init (){}
+
+    private func generateEmails(_ quantity: Int) -> [String] {
         var emails: [String] = []
         for _ in 1...quantity {
             let providers = ["gmail.com", "hotmail.com", "icloud.com",
@@ -35,12 +41,12 @@ extension DataManager {
         return emails
     }
 
-    class func randomString(length: Int) -> String {
+    private func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         return String((0 ..< length).map { _ in letters.randomElement() ?? "*" })
     }
 
-    static func generatePhones(_ quantity: Int) -> [String] {
+    private func generatePhones(_ quantity: Int) -> [String] {
         var phones: [String] = []
         for _ in 1...quantity {
             let randomNumber = Int.random(in: 500000000...999999999)
@@ -53,4 +59,19 @@ extension DataManager {
         }
         return phones
     }
+    
+    func createPersons() -> [Person] {
+        var persons: [Person] = []
+        for index in 0 ..< names.count {
+            let person = Person(
+                id: index + 1,
+                firstName: names[index],
+                lastName: surnames[index],
+                email: emails[index],
+                phoneNumber: phones[index])
+            persons.append(person)
+        }
+        return persons
+    }
 }
+

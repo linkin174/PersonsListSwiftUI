@@ -8,22 +8,29 @@
 import SwiftUI
 
 struct MainVIew: View {
-    let persons = Person.createPersons()
-
+    
+    let dataManager: DataManagerProtocol
+    
+    init(dataManager: DataManagerProtocol) {
+        self.dataManager = dataManager
+    }
+    
     var body: some View {
         TabView {
-            ListView(persons: persons, viewTitle: "Persons List").tabItem {
-                Label("List", systemImage: "person.3.fill")
-            }
-            ContactsView(persons: persons, viewTitle: "Contacts").tabItem {
-                Label("Contact", systemImage: "tray.full.fill")
-            }
+            ListView(persons: dataManager.createPersons(), viewTitle: "Persons List")
+                .tabItem {
+                    Label("List", systemImage: "person.3.fill")
+                }
+            ContactsView(persons: dataManager.createPersons(), viewTitle: "Contacts")
+                .tabItem {
+                    Label("Contact", systemImage: "tray.full.fill")
+                }
         }
     }
 }
 
 struct MainVIew_Previews: PreviewProvider {
     static var previews: some View {
-        MainVIew()
+        MainVIew(dataManager: DataManager.shared)
     }
 }
