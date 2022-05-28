@@ -5,13 +5,16 @@
 //  Created by Aleksandr Kretov on 22.03.2022.
 //
 
-class DataManager {
+final class DataManager {
     static let shared = DataManager()
+    
     let names = ["Alex", "Tim", "Phil", "Alison", "Robert", "Amanda", "Andrew", "Samantha", "Stephany", "Rebecca"].shuffled()
     let surnames = ["Smith", "Cook", "Janson", "Peterson", "Pennyworth", "Blake", "Williams", "Gibson", "Martin", "Jordan"].shuffled()
+    
     var emails: [String] {
         DataManager.generateEmails(names.count)
     }
+    
     var phones: [String] {
         DataManager.generatePhones(names.count)
     }
@@ -34,7 +37,7 @@ extension DataManager {
 
     class func randomString(length: Int) -> String {
         let letters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
-        return String((0 ..< length).map { _ in letters.randomElement()! })
+        return String((0 ..< length).map { _ in letters.randomElement() ?? "*" })
     }
 
     static func generatePhones(_ quantity: Int) -> [String] {

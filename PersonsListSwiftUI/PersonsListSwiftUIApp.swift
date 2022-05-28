@@ -11,7 +11,7 @@ import SwiftUI
 struct PersonsListSwiftUIApp: App {
     var body: some Scene {
         WindowGroup {
-            PersonsListView(persons: Person.createPersons())
+            MainVIew()
         }
     }
 }

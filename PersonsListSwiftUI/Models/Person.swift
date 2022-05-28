@@ -6,6 +6,9 @@
 //
 
 struct Person: Identifiable {
+    
+    let dataManager: DataManagerProtocol
+    
     let id: Int
     let firstName: String
     let lastName: String
@@ -15,13 +18,13 @@ struct Person: Identifiable {
         "\(firstName) \(lastName)"
     }
     
-    var rows: Int {
-        [email, phoneNumber].count
+    init(dataManager: DataManagerProtocol) {
+        self.dataManager = dataManager
     }
-
-    static func createPersons() -> [Person] {
+    
+    func createPersons() -> [Person] {
         var persons: [Person] = []
-        for index in 0 ..< DataManager.shared.names.count {
+        for index in 0 ..< dataManager {
             let person = Person(
                 id: index,
                 firstName: DataManager.shared.names[index],
