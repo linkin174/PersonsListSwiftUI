@@ -25,6 +25,6 @@ struct ListView: View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ListView(persons: DataManager.shared.createPersons(), viewTitle: "Persons List")
+        ListView(persons: DataManager().persons, viewTitle: "list")
     }
 }

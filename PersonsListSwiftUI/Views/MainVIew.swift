@@ -8,20 +8,16 @@
 import SwiftUI
 
 struct MainVIew: View {
-    
-    let dataManager: DataManagerProtocol
-    
-    init(dataManager: DataManagerProtocol) {
-        self.dataManager = dataManager
-    }
+
+    @StateObject private var dataManager = DataManager()
     
     var body: some View {
         TabView {
-            ListView(persons: dataManager.createPersons(), viewTitle: "Persons List")
+            ListView(persons: dataManager.persons, viewTitle: "Persons List")
                 .tabItem {
                     Label("List", systemImage: "person.3.fill")
                 }
-            ContactsView(persons: dataManager.createPersons(), viewTitle: "Contacts")
+            ContactsView(persons: dataManager.persons, viewTitle: "Contacts")
                 .tabItem {
                     Label("Contact", systemImage: "tray.full.fill")
                 }
@@ -31,6 +27,6 @@ struct MainVIew: View {
 
 struct MainVIew_Previews: PreviewProvider {
     static var previews: some View {
-        MainVIew(dataManager: DataManager.shared)
+        MainVIew()
     }
 }

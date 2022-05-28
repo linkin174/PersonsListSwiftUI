@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct PersonsListSwiftUIApp: App {
+    
     var body: some Scene {
         WindowGroup {
-            MainVIew(dataManager: DataManager.shared)
+            MainVIew()
         }
     }
 }

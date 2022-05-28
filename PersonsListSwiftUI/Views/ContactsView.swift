@@ -25,6 +25,6 @@ struct ContactsView: View {
 
 struct PersenDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ContactsView(persons: DataManager.shared.createPersons(), viewTitle: "Contacts")
+        ContactsView(persons: DataManager().persons, viewTitle: "Contacts")
     }
 }

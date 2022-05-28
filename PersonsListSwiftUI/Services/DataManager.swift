@@ -5,13 +5,11 @@
 //  Created by Aleksandr Kretov on 22.03.2022.
 //
 
-protocol DataManagerProtocol {
-    func createPersons() -> [Person]
-}
+import Foundation
 
-final class DataManager: DataManagerProtocol {
+final class DataManager: ObservableObject {
     
-    static let shared: DataManagerProtocol = DataManager()
+    @Published var persons = [Person]()
     
     private let names = ["Alex", "Tim", "Phil", "Alison", "Robert", "Amanda",
                          "Andrew", "Samantha", "Stephany", "Rebecca"].shuffled()
@@ -26,9 +24,11 @@ final class DataManager: DataManagerProtocol {
     private var phones: [String] {
         generatePhones(names.count)
     }
-    
-    private init (){}
 
+    init() {
+        self.persons = createPersons()
+    }
+    
     private func generateEmails(_ quantity: Int) -> [String] {
         var emails: [String] = []
         for _ in 1...quantity {
@@ -60,7 +60,7 @@ final class DataManager: DataManagerProtocol {
         return phones
     }
     
-    func createPersons() -> [Person] {
+    private func createPersons() -> [Person] {
         var persons: [Person] = []
         for index in 0 ..< names.count {
             let person = Person(
